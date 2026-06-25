@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TTNT Review - 150 câu trắc nghiệm</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="sidebar" aria-label="Bộ lọc và tiến độ">
+        <div class="brand">
+          <span class="brand-mark">AI</span>
+          <div>
+            <h1>TTNT Review</h1>
+            <p>150 câu trắc nghiệm theo slide</p>
+          </div>
+        </div>
+
+        <section class="panel compact">
+          <div class="stat-grid">
+            <div>
+              <span id="statTotal">150</span>
+              <small>Tổng câu</small>
+            </div>
+            <div>
+              <span id="statDone">0</span>
+              <small>Đã làm</small>
+            </div>
+            <div>
+              <span id="statCorrect">0</span>
+              <small>Đúng</small>
+            </div>
+            <div>
+              <span id="statWrong">0</span>
+              <small>Sai</small>
+            </div>
+          </div>
+          <div class="progress-track" aria-label="Tiến độ">
+            <div id="progressFill" class="progress-fill"></div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <label for="lectureFilter">Chương</label>
+          <select id="lectureFilter"></select>
+
+          <label for="topicFilter">Chủ đề</label>
+          <select id="topicFilter"></select>
+
+          <label for="difficultyFilter">Độ khó</label>
+          <select id="difficultyFilter">
+            <option value="all">Tất cả độ khó</option>
+            <option value="cơ bản">Cơ bản</option>
+            <option value="trung bình">Trung bình</option>
+            <option value="vận dụng">Vận dụng</option>
+          </select>
+        </section>
+
+        <section class="panel actions">
+          <button id="shuffleBtn" type="button">Xáo trộn</button>
+          <button id="wrongModeBtn" type="button">Ôn câu sai</button>
+          <button id="bookmarkedModeBtn" type="button">Câu đánh dấu</button>
+          <button id="resetFiltersBtn" type="button" class="secondary">Bỏ lọc lại</button>
+          <button id="resetProgressBtn" type="button" class="danger">Xóa tiến độ</button>
+        </section>
+      </aside>
+
+      <section class="study-area" aria-live="polite">
+        <header class="topbar">
+          <div>
+            <p id="modeLabel" class="eyebrow">Tất cả câu hỏi</p>
+            <h2 id="questionCounter">Câu 1 / 150</h2>
+          </div>
+          <button id="bookmarkBtn" type="button" class="icon-button" aria-label="Đánh dấu câu hỏi" title="Đánh dấu câu hỏi">☆</button>
+        </header>
+
+        <article class="question-card">
+          <div class="meta-row">
+            <span id="lectureBadge" class="badge">Lecture</span>
+            <span id="topicBadge" class="badge muted">Topic</span>
+            <span id="difficultyBadge" class="badge muted">Độ khó</span>
+          </div>
+
+          <p id="slideRefs" class="slide-ref"></p>
+          <h3 id="questionText"></h3>
+          <div id="optionsList" class="options-list"></div>
+
+          <section id="feedback" class="feedback hidden">
+            <strong id="feedbackTitle"></strong>
+            <p id="feedbackText"></p>
+          </section>
+        </article>
+
+        <footer class="nav-row">
+          <button id="prevBtn" type="button" class="secondary">Trước</button>
+          <button id="nextUnansweredBtn" type="button" class="secondary">Câu chưa làm</button>
+          <button id="nextBtn" type="button">Tiếp theo</button>
+        </footer>
+
+        <section class="question-strip" aria-label="Danh sách câu hỏi">
+          <div id="questionDots"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="questions.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
